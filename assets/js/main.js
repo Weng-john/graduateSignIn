@@ -6,7 +6,7 @@ function isChinese(str){
 }
 
 function Confirm(){
-    profile= document.getElementById("class").value;
+    profile= document.getElementById("class").value + ",";
     var str= document.getElementById("name").value;
     if(!str){
         alert("請輸入正確的姓名");
@@ -34,5 +34,5 @@ function Confirm(){
 
 function createSession(){
     $("section").after("<div id="+ "insert" +" class="+"qrCode"+"></div>");
-    $("#insert").qrcode({ width: 150, height:150, text: profile});
+    $("#insert").qrcode({ width: 200, height:200, text: profile});
 }
