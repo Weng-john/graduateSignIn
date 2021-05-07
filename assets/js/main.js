@@ -40,7 +40,11 @@ function Confirm(){
         change= true;
     }
     else{
-        $("#insert").qrcode({ width: 150, height:150, text: profile});
+        var removeObj= document.getElementById("insert");
+        var obj= removeObj.parentNode;
+        obj.removeChild(removeObj);
+        $("section").after("<div id="+ "insert" +" class="+"qrCode"+"></div>");
+        $("#insert").qrcode({ width: 200, height:200, text: profile});
     }
 }
 
