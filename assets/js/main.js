@@ -8,6 +8,7 @@ function isChinese(str){
 function Confirm(){
     profile= document.getElementById("class").value + ",";
     var str= document.getElementById("name").value;
+    var Status= document.getElementById("status").value;
     if(!str){
         alert("請輸入正確的姓名");
         document.getElementById("name").value= "";
@@ -23,6 +24,17 @@ function Confirm(){
             }
         }
     }
+    profile += ",";
+    for (var i = 0; i <  Status.length; i++) {
+        var temp = Status.charAt(i);
+        if(isChinese(temp)){
+            profile += '\\u' +  temp.charCodeAt(0).toString(16);
+        }
+        else{
+            profile += temp;
+        }
+    }
+    
     if(!(change)){
         createSession();
         change= true;
